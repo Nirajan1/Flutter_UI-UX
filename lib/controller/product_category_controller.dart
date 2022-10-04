@@ -17,4 +17,10 @@ class CategoriesController extends GetxController {
       isLoading(false);
     }
   }
+
+  @override
+  void onInit() {
+    super.onInit();
+    getCategory();
+  }
 }

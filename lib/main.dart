@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ui_ux_design_1/binding/controller_binding.dart';
 import 'package:ui_ux_design_1/views/home.dart';
 
 void main() {
@@ -14,12 +15,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'E-commerce',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(seconds: 2),
+      initialBinding: ControllerBinding(),
       home: const HomeView(),
     );
   }

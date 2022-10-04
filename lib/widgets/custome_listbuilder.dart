@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class MyListViewBuilder extends StatelessWidget {
   final String title;
+  final String image;
   const MyListViewBuilder({
     Key? key,
     required this.title,
+    required this.image,
   }) : super(key: key);
 
   @override
@@ -13,7 +15,7 @@ class MyListViewBuilder extends StatelessWidget {
       padding: const EdgeInsets.all(3.0),
       child: Container(
           width: 150,
-          height: 180,
+          height: 190,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(4),
@@ -21,21 +23,20 @@ class MyListViewBuilder extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(
+              Container(
                 width: 150,
-                height: 90,
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Image.network(
-                    'https://cdn.pixabay.com/photo/2022/09/21/02/28/hummingbird-7469232__340.jpg',
-                    fit: BoxFit.cover,
-                  ),
+                height: 110,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(image), fit: BoxFit.cover),
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Expanded(
+                    flex: 5,
                     child: SizedBox(
                       child: Column(
                         children: [
@@ -44,8 +45,10 @@ class MyListViewBuilder extends StatelessWidget {
                       ),
                     ),
                   ),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.more_vert))
+                  Expanded(
+                    child: IconButton(
+                        onPressed: () {}, icon: const Icon(Icons.more_vert)),
+                  )
                 ],
               )
             ],

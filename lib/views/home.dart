@@ -1,21 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:ui_ux_design_1/widgets/custome_listbuilder.dart';
-import 'package:ui_ux_design_1/widgets/custome_listtile.dart';
+import 'package:ui_ux_design_1/screen/cart_screen.dart';
+import 'package:ui_ux_design_1/screen/home_screen.dart';
+import 'package:ui_ux_design_1/screen/profile_screen.dart';
+import 'package:ui_ux_design_1/screen/setting_screen.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
-  static const List _post = [
-    "Men's Clothing",
-    "Jewelary",
-    "Women's Colothing",
-    "Winter Clothing",
-    "Kitchen Equipment"
-  ];
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (index) {
+            selectedIndex = index;
+            setState(() {});
+          },
+          currentIndex: selectedIndex,
+          showSelectedLabels: true,
+          selectedItemColor: Colors.blue,
+          showUnselectedLabels: true,
+          unselectedItemColor: Colors.grey,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Cart',
+            ),
+          ],
+        ),
         appBar: AppBar(
           elevation: 0,
           title: const Text("Ecommerce"),
@@ -27,31 +57,14 @@ class HomeView extends StatelessWidget {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const MyListTile(title: 'Category'),
-              //listView.buider
-              Container(
-                width: Get.size.width,
-                height: 150,
-                decoration: const BoxDecoration(),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: _post.length,
-                  itemBuilder: (context, index) {
-                    return MyListViewBuilder(
-                      title: _post[index],
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: 10.0,
-              )
-            ],
-          ),
-        ),
+        backgroundColor: Colors.grey[300],
+        body: selectedIndex == 0
+            ? const HomeScreen()
+            : selectedIndex == 1
+                ? const SettingScreen()
+                : selectedIndex == 2
+                    ? const PorfileScreen()
+                    : const CartScreen(),
       ),
     );
   }
