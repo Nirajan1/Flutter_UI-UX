@@ -10,7 +10,19 @@ class MyListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        title: Text(title),
-        trailing: TextButton(onPressed: () {}, child: const Text("View more")));
+      title: Text(
+        title,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
+      trailing: TextButton(
+        onPressed: () {},
+        child: const Text(
+          "View more",
+          style: TextStyle(
+            color: Colors.red,
+          ),
+        ),
+      ),
+    );
   }
 }

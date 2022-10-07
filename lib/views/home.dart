@@ -47,17 +47,24 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
         appBar: AppBar(
-          elevation: 0,
-          title: const Text("Ecommerce"),
+          elevation: 1,
+          backgroundColor: const Color(0xfff8f8f8),
+          title: const Text(
+            "Ecommerce",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
           centerTitle: true,
           actions: [
             IconButton(
               onPressed: () {},
+              color: Colors.red,
               icon: const Icon(Icons.shopping_cart),
             ),
           ],
         ),
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.grey.shade100,
         body: selectedIndex == 0
             ? const HomeScreen()
             : selectedIndex == 1
