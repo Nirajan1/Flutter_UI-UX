@@ -79,6 +79,9 @@ class SettingScreen extends StatelessWidget {
                 ),
               ),
               const Divider(height: 1),
+              const SizedBox(
+              height:30, ///some thing changed here!!! remove this box
+              ),
             ],
           ),
         ),
