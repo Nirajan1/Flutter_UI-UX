@@ -20,8 +20,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           // primarySwatch: Colors.blue,
           ),
-      defaultTransition: Transition.fadeIn,
-      transitionDuration: const Duration(seconds: 2),
       initialBinding: ControllerBinding(),
       home: const SplashView(),
     );

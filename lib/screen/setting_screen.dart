@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ui_ux_design_1/views/login_page.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -68,7 +70,9 @@ class SettingScreen extends StatelessWidget {
               ),
               const Divider(height: 1),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  Get.offAll(const LoginView());
+                },
                 title: Text(
                   "Logout",
                   style: TextStyle(color: Colors.red[200]),
@@ -79,9 +83,6 @@ class SettingScreen extends StatelessWidget {
                 ),
               ),
               const Divider(height: 1),
-              const SizedBox(
-              height:30, ///some thing changed here!!! remove this box
-              ),
             ],
           ),
         ),

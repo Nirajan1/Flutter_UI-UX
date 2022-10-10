@@ -61,7 +61,7 @@ class _LoginViewState extends State<LoginView> {
                           border: InputBorder.none,
                         ),
                         validator: ((value) =>
-                            value!.isEmpty ? 'Email id is required' : null),
+                            value!.isEmpty ? 'User name is required' : null),
                       ),
                     ),
                     const SizedBox(
