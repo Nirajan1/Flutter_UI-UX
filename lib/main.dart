@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ui_ux_design_1/binding/controller_binding.dart';
 // import 'package:ui_ux_design_1/views/home.dart';
-import 'package:ui_ux_design_1/views/login_page.dart';
 import 'package:ui_ux_design_1/views/splach_screen.dart';
 
 void main() {
